@@ -2,7 +2,18 @@ import React from "react";
 import { createContext, useState } from "react";
 import { COUNTDOWN_SECONDS } from "../constants";
 
-export const GameContext = createContext({});
+export const GameContext = createContext({
+  countdown: COUNTDOWN_SECONDS,
+  setCountdown: () => {},
+  isGameOn: false,
+  setIsGameOn: () => {},
+  clickedCity: "",
+  setClickedCity: () => {},
+  typedCity: "",
+  setTypedCity: () => {},
+  score: 0,
+  setScore: () => {}
+});
 
 const ContextProvider = ({ children }) => {
   const [countdown, setCountdown] = useState(COUNTDOWN_SECONDS);

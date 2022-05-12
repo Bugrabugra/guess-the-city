@@ -8,8 +8,22 @@ const Score = () => {
 
   const controls = useAnimation();
 
+  const updateLocalStorage = () => {
+    const initialScore = localStorage.getItem("guess-the-city-score");
+
+    if (!initialScore && score > 0) {
+      localStorage.setItem("guess-the-city-score", score);
+      return;
+    }
+
+    if (parseInt(initialScore) < score) {
+      localStorage.setItem("guess-the-city-score", score);
+    }
+  };
+
   useEffect(() => {
     if (score > 0) {
+      updateLocalStorage();
       setIsAnimating(true);
       controls
         .start({

@@ -45,19 +45,16 @@ function App() {
   const gameController = () => {
     if (isGameOn && gameType === TYPING) {
       setCityCallback();
-      console.log(cityToBeGuessed);
       if (
         cityToBeGuessed !== "" &&
         cityToBeGuessed.toLocaleLowerCase("tr") ===
           typedCity.toLocaleLowerCase("tr")
       ) {
-        console.log("DOĞRU");
         setScore((prevState) => prevState + 1);
         setCountdown(COUNTDOWN_SECONDS);
       }
     } else if (isGameOn && gameType === CLICKING) {
       setCityCallback();
-      console.log(memoizedRandomCity);
       if (
         cityToBeGuessed !== "" &&
         cityToBeGuessed.toLocaleLowerCase("tr") ===

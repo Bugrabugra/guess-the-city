@@ -4,12 +4,29 @@ import { GameContext } from "../context/GameContext";
 const Result = () => {
   const { score, setIsGameOn } = useContext(GameContext);
 
+  const bestScore = () => {
+    const scoreFromLocalStorage = parseInt(
+      localStorage.getItem("guess-the-city-score")
+    );
+
+    return (
+      <div>
+        Bugüne kadarki en yüksek skorunuz:{" "}
+        <span className="text-sky-500 font-bold">
+          {scoreFromLocalStorage ? scoreFromLocalStorage : "yok =("}
+        </span>
+      </div>
+    );
+  };
+
   const message = () => {
     if (score === 0) {
       return (
         <div className="text-xl">
           Tüh! <span className="text-pink-500 font-bold">{score}</span> puan ama
           olsun.
+          <br />
+          {bestScore()}
           <br />
           Bi' daha deneyin bakalım?
         </div>
@@ -20,20 +37,25 @@ const Result = () => {
           Fena değil! Puanınız{" "}
           <span className="text-pink-500 font-bold">{score}</span> !
           <br />
+          {bestScore()}
+          <br />
           Yeniden oynamak ister misiniz?
         </div>
       );
     } else {
       return (
-        <div div className="text-xl">
+        <div className="text-xl">
           Müthiş! Puanınız{" "}
           <span className="text-pink-500 font-bold">{score}</span> !
+          <br />
+          {bestScore()}
           <br />
           Yeni bir rekor denemesi?
         </div>
       );
     }
   };
+
   return (
     <div className="absolute top-1/2 left-1/2 -translate-y-40 -translate-x-1/2 bg-gradient-to-b from-slate-600 to-slate-800 rounded-lg shadow-xl p-4 text-primaryLight flex flex-col justify-center items-center text-center space-y-4 z-30">
       {message()}

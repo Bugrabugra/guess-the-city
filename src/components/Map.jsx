@@ -73,7 +73,6 @@ const Map = ({ cityToBeGuessed, gameType }) => {
           layer.feature.properties.NAME.toLocaleLowerCase("tr") ===
             cityToBeGuessed.toLocaleLowerCase("tr")
         ) {
-          console.log(layer.feature.properties.NAME.toLocaleLowerCase());
           layer.setStyle({
             fillColor: "#0000ff",
             fillOpacity: 1
