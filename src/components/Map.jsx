@@ -28,12 +28,6 @@ const Map = ({ cityToBeGuessed, gameType }) => {
 
   useEffect(() => {
     initializeMap();
-
-    mapRef.current.on("load", () => {
-      setTimeout(() => {
-        mapRef.current.invalidateSize();
-      }, 1);
-    });
   }, []);
 
   useEffect(() => {
@@ -99,7 +93,7 @@ const Map = ({ cityToBeGuessed, gameType }) => {
     };
   }, [cityToBeGuessed]);
 
-  return <div id="map" className="h-screen w-full z-0"></div>;
+  return <div id="map" className="h-screen h-full w-full z-0"></div>;
 };
 
 export default Map;
