@@ -24,16 +24,16 @@ const Map = ({ cityToBeGuessed, gameType }) => {
           "<a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>"
       }
     ).addTo(mapRef.current);
+  };
+
+  useEffect(() => {
+    initializeMap();
 
     mapRef.current.on("load", () => {
       setTimeout(() => {
         mapRef.current.invalidateSize();
       }, 1);
     });
-  };
-
-  useEffect(() => {
-    initializeMap();
   }, []);
 
   useEffect(() => {
