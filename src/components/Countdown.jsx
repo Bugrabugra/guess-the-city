@@ -28,7 +28,7 @@ const Countdown = () => {
     return () => {
       clearInterval(intervalRef.current);
     };
-  }, [setCountdown, intervalRef, isGameOn]);
+  }, [intervalRef, isGameOn]);
 
   return (
     <motion.div
